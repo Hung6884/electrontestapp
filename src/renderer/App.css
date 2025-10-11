@@ -121,3 +121,104 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-appl
 }
 .toast.error{border-color:#ff6b6b3d;background:rgba(255,107,107,0.08)}
 .footnote{margin:20px auto 0;color:var(--muted);text-align:center;font-size:13px;max-width:900px}
+/* Lưới bao các mục */
+.thumb-grid-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* Mỗi item */
+.thumb {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(2px);
+}
+
+/* tiêu đề file */
+.thumb-head {
+  font-size: 12px;
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.06);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* lưới Before | After */
+.thumb-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+/* khung ảnh cố định tỉ lệ vuông (có thể đổi thành 4/3 hoặc 3/4) */
+.img-box {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  /* caro cho nền trong suốt */
+  background:
+    conic-gradient(#ddd 25%, transparent 0 50%, #ddd 0 75%, transparent 0) 0 0/20px 20px,
+    #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* nhãn góc trên trái */
+.img-box .label {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+}
+
+/* ảnh vừa khít khung, không tràn */
+.img-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* placeholder khi chưa có after */
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: #999;
+  font-size: 20px;
+}
+
+/* chân item */
+.thumb-foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px 10px;
+}
+
+/* chip màu */
+.chip { padding: 2px 8px; border-radius: 999px; font-size: 12px; }
+.chip.success { background: rgba(16,185,129,.2); color: #10b981; }
+.chip.warn    { background: rgba(234,179,8,.2);  color: #eab308; }
+.chip.error   { background: rgba(239,68,68,.2);  color: #ef4444; }
+
+/* —— Single-image section tối ưu hơn —— */
+.image-wrap { max-height: 480px; }
+.image-wrap .preview {
+  width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  background:
+    conic-gradient(#ddd 25%, transparent 0 50%, #ddd 0 75%, transparent 0) 0 0/20px 20px,
+    #f0f0f0;
+}
